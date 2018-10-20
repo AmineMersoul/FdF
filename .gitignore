@@ -1,0 +1,8 @@
+.DS_Store
+.vscode
+/fdf demo
+/minilibx
+/test_maps
+/libft
+fdf.out
+main.c
