@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_line.c                                   :+:      :+:    :+:   */
+/*   ft_offset_line.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/22 15:45:24 by amersoul          #+#    #+#             */
-/*   Updated: 2018/10/22 19:48:54 by amersoul         ###   ########.fr       */
+/*   Created: 2018/10/22 19:45:33 by amersoul          #+#    #+#             */
+/*   Updated: 2018/10/22 19:48:40 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "draw.h"
 
-t_line	ft_create_line(const int x1, const int y1, const int x2, const int y2)
+t_line	ft_offset_line(t_line line, const t_point offset)
 {
-	t_line line;
-
-	line.point_1.x = x1;
-	line.point_1.y = y1;
-	line.point_2.x = x2;
-	line.point_2.y = y2;
+	line.point_1.x += offset.x;
+	line.point_1.y += offset.y;
+	line.point_2.x += offset.x;
+	line.point_2.y += offset.y;
 	return (line);
 }

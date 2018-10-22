@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/20 13:28:19 by amersoul          #+#    #+#             */
-/*   Updated: 2018/10/22 11:14:50 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/10/22 19:49:18 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static void	draw_case2(void *param, t_point point_1, int ey, t_line line_cal)
 	}
 }
 
-void		draw_line_bresenham(void *param, t_line line)
+void		ft_draw_line_bresenham(void *param, t_line line)
 {
 	t_point	point_e;
 	t_line	line_cal;
