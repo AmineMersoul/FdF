@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wireframe.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amersoul <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/21 14:51:02 by amersoul          #+#    #+#             */
-/*   Updated: 2018/10/21 14:51:04 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/10/22 17:12:01 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "../libft/libft.h"
 
 void	ft_count_x_y(const int fd, int *x, int *y);
-void	ft_create_wireframe(const int fd,
-const int x, const int y, int **wireframe);
+int		**ft_create_wireframe(const int fd,
+const int x, const int y);
 
 #endif

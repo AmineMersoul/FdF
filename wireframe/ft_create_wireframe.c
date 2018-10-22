@@ -3,22 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_create_wireframe.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amersoul <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/21 20:48:10 by amersoul          #+#    #+#             */
-/*   Updated: 2018/10/21 21:16:42 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/10/22 17:11:26 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wireframe.h"
 
-void	ft_create_wireframe(const int fd,
-const int x, const int y, int **wireframe)
+int		**ft_create_wireframe(const int fd,
+const int x, const int y)
 {
 	char	*line;
 	int		i;
 	int		j;
 	char	**res;
+	int		**wireframe;
 
 	wireframe = (int **)malloc(sizeof(int *) * y);
 	wireframe[0] = (int *)malloc(sizeof(int) * x * y);
@@ -37,4 +38,5 @@ const int x, const int y, int **wireframe)
 		}
 		i++;
 	}
+	return (wireframe);
 }
