@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_draw_line_bresenham.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amersoul <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/20 13:28:19 by amersoul          #+#    #+#             */
-/*   Updated: 2018/10/20 13:28:20 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/10/22 11:14:50 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,8 @@ void		draw_line_bresenham(void *param, t_line line)
 	t_point	point_e;
 	t_line	line_cal;
 
-	point_e.x = abs(line.point_2.x - line.point_1.x);
-	point_e.y = abs(line.point_2.y - line.point_1.y);
+	point_e.x = ft_abs(line.point_2.x - line.point_1.x);
+	point_e.y = ft_abs(line.point_2.y - line.point_1.y);
 	line_cal.point_1.x = 2 * point_e.x;
 	line_cal.point_1.y = 2 * point_e.y;
 	line_cal.point_2.x = 1;
