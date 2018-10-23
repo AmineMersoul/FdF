@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/20 20:18:52 by amersoul          #+#    #+#             */
-/*   Updated: 2018/10/22 19:49:06 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/10/23 17:32:53 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "../minilibx/mlx.h"
 # include "../util/util.h"
 
-typedef struct	s_draw_param
+typedef struct
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
@@ -27,18 +27,18 @@ typedef struct
 {
 	int			x;
 	int			y;
-}				t_point;
+	int			z;
+}				t_vertex;
 
 typedef struct
 {
-	t_point		point_1;
-	t_point		point_2;
-}	t_line;
+	t_vertex		vertex_1;
+	t_vertex		vertex_2;
+}	t_edge;
 
-void			ft_draw_line_bresenham(void *param, t_line line);
-t_line			ft_create_line(const int x1, const int y1,
-const int x2, const int y2);
-t_line			ft_offset_line(t_line line, const t_point offset);
-t_line			ft_scale_line(t_line line, const int scale);
-
+t_vertex	ft_create_vertex(const int x, const int y, const int z);
+t_edge		ft_create_edge(t_vertex vertex_1, t_vertex vertex_2);
+void		ft_draw_line(void *param, t_edge edge);
+t_edge		ft_offset_edge(t_edge edge, const t_vertex offset);
+t_edge		ft_scale_edge(t_edge edge, const int scale);
 #endif
