@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/21 20:48:10 by amersoul          #+#    #+#             */
-/*   Updated: 2018/10/23 19:00:27 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/10/23 19:11:56 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ t_surface		*ft_create_surface(const int fd, const int x, const int y)
 		col = 0;
 		while (res[col] != 0)
 		{
-			surface->t_vertex[row][col] = ft_create_vertex(row, col, ft_atoi((const char *)res[col]));
+			surface->t_vertex[row][col] = ft_create_vertex(col, row, ft_atoi((const char *)res[col]));
 			col++;
 		}
 		row++;
