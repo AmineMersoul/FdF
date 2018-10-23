@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/20 13:28:19 by amersoul          #+#    #+#             */
-/*   Updated: 2018/10/23 12:20:08 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/10/23 21:10:07 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static void	draw_case2(void *param, t_vertex vertex_1, int ey, t_edge edge_cal)
 void		ft_draw_line(void *param, t_edge edge)
 {
 	t_vertex	vertex_e;
-	t_edge	edge_cal;
+	t_edge		edge_cal;
 
 	vertex_e.x = ft_abs(edge.vertex_2.x - edge.vertex_1.x);
 	vertex_e.y = ft_abs(edge.vertex_2.y - edge.vertex_1.y);
