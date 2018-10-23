@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_line.c                                   :+:      :+:    :+:   */
+/*   ft_create_edge.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/22 15:45:24 by amersoul          #+#    #+#             */
-/*   Updated: 2018/10/22 19:48:54 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/10/23 16:43:54 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "draw.h"
 
-t_line	ft_create_line(const int x1, const int y1, const int x2, const int y2)
+t_edge	ft_create_edge(t_vertex vertex_1, t_vertex vertex_2)
 {
-	t_line line;
+	t_edge edge;
 
-	line.point_1.x = x1;
-	line.point_1.y = y1;
-	line.point_2.x = x2;
-	line.point_2.y = y2;
-	return (line);
+	edge.vertex_1 = vertex_1;
+	edge.vertex_2 = vertex_2;
+	return (edge);
 }
