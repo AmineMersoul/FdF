@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/21 20:48:10 by amersoul          #+#    #+#             */
-/*   Updated: 2018/10/23 18:02:16 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/10/23 19:00:27 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ t_surface		*ft_create_surface(const int fd, const int x, const int y)
 	surface = malloc(sizeof(surface));
 	surface->rows = y;
 	surface->cols = x;
-	surface->t_vertex  = (t_vertex **)malloc(sizeof(t_vertex *) * x); 
+	surface->t_vertex  = (t_vertex **)malloc(sizeof(t_vertex *) * y); 
     surface->t_vertex[0] = (t_vertex *)malloc(sizeof(t_vertex) * y * x); 
-    for(row = 0; row < x; row++) 
-        surface->t_vertex[row] = (*surface->t_vertex + y * row);
+    for(row = 0; row < y; row++) 
+        surface->t_vertex[row] = (*surface->t_vertex + x * row);
 	row = 0;
 	while (get_next_line(fd, &line))
 	{
