@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/20 20:18:52 by amersoul          #+#    #+#             */
-/*   Updated: 2018/10/23 17:32:53 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/10/23 19:35:17 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ typedef struct
 
 typedef struct
 {
-	int			x;
-	int			y;
-	int			z;
+	float			x;
+	float			y;
+	float			z;
 }				t_vertex;
 
 typedef struct
