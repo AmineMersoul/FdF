@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/20 13:28:19 by amersoul          #+#    #+#             */
-/*   Updated: 2018/10/24 11:17:46 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/10/24 20:03:57 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	draw_case1(void *param, t_vertex vertex_1, int ex, t_edge edge_cal)
 	while (i <= c_dx)
 	{
 		mlx_pixel_put(params->mlx_ptr, params->win_ptr,
-		vertex_1.x, vertex_1.y, params->color);
+		vertex_1.x, vertex_1.y, ft_create_rgb(params->color));
 		i++;
 		vertex_1.x += edge_cal.vertex_2.x;
 		ex -= edge_cal.vertex_1.y;
@@ -48,7 +48,7 @@ static void	draw_case2(void *param, t_vertex vertex_1, int ey, t_edge edge_cal)
 	while (i <= c_dy)
 	{
 		mlx_pixel_put(params->mlx_ptr, params->win_ptr,
-		vertex_1.x, vertex_1.y, params->color);
+		vertex_1.x, vertex_1.y, ft_create_rgb(params->color));
 		i++;
 		vertex_1.y += edge_cal.vertex_2.y;
 		ey -= edge_cal.vertex_1.x;
