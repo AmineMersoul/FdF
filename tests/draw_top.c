@@ -49,14 +49,10 @@ void	draw_surface_iso(t_surface *surface, void *param)
 {
 	int row;
 	int col;
-	t_vertex offset;
-	t_edge edge;
 	t_edge projection;
 	t_draw_params *params;
 
 	params = (t_draw_params*)param;
-	offset.x = 500;
-	offset.y = 200;
 	row = 0;
 	while (row < surface->rows)
 	{
@@ -66,16 +62,16 @@ void	draw_surface_iso(t_surface *surface, void *param)
 			if (col + 1 < surface->cols)
 			{
 				
-				edge = ft_create_edge(surface->vertex[row][col], surface->vertex[row][col + 1]);
-				projection = ft_iso_projection(edge, params->extrude);
+				projection = ft_create_edge(surface->vertex[row][col], surface->vertex[row][col + 1]);
+				projection = ft_iso_projection(projection, params->extrude);
 				projection = ft_scale_edge(projection , params->scale);
 				projection = ft_offset_edge(projection, params->offset);
 				ft_draw_line(param, projection);
 			}
 			if (row + 1 < surface->rows)
 			{
-				edge = ft_create_edge(surface->vertex[row][col], surface->vertex[row + 1][col]);
-				projection = ft_iso_projection(edge, params->extrude);
+				projection = ft_create_edge(surface->vertex[row][col], surface->vertex[row + 1][col]);
+				projection = ft_iso_projection(projection, params->extrude);
 				projection = ft_scale_edge(projection, params->scale);
 				projection = ft_offset_edge(projection, params->offset);
 				ft_draw_line(param, projection);
@@ -207,6 +203,24 @@ int	deal_key(int key, void *param)
 		params->offset.x -= 50;
 		redraw(params);
 	}
+	// key r pressed
+	if (key == 15)
+	{
+		params->color.r -= 10;
+		redraw(params);
+	}
+	// key g pressed
+	if (key == 5)
+	{
+		params->color.g -= 10;
+		redraw(params);
+	}
+	// key b pressed
+	if (key == 11)
+	{
+		params->color.b -= 10;
+		redraw(params);
+	}
 	// printing key pressed
 	ft_putstr("key : ");
 	ft_putnbr(key);
@@ -292,12 +306,12 @@ int	main(void)
 
 	// init and create new mlx window
 	mlx_ptr = mlx_init();
-	win_ptr = mlx_new_window(mlx_ptr, 1200, 800, "mlx test");
+	win_ptr = mlx_new_window(mlx_ptr, 1920, 1080, "mlx test");
 
 	t_draw_params *params = malloc(sizeof(t_draw_params));
 	params->win_ptr = win_ptr;
 	params->mlx_ptr = mlx_ptr;
-	params->color = 0xFFFFFF;
+	params->color = ft_create_color(255, 255, 255);
 	params->extrude = 0.2f;
 	params->scale = 4;
 	params->surface = surface;
