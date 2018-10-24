@@ -6,11 +6,11 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/22 19:46:48 by amersoul          #+#    #+#             */
-/*   Updated: 2018/10/23 12:16:25 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/10/24 11:17:53 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "draw.h"
+#include "wireframe.h"
 
 t_edge	ft_scale_edge(t_edge edge, const int scale)
 {

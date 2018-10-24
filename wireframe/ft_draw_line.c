@@ -6,11 +6,11 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/20 13:28:19 by amersoul          #+#    #+#             */
-/*   Updated: 2018/10/23 21:10:07 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/10/24 11:17:46 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "draw.h"
+#include "wireframe.h"
 
 static void	draw_case1(void *param, t_vertex vertex_1, int ex, t_edge edge_cal)
 {

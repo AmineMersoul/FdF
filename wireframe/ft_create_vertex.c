@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_offset_line.c                                   :+:      :+:    :+:   */
+/*   ft_create_vertex.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/22 19:45:33 by amersoul          #+#    #+#             */
-/*   Updated: 2018/10/23 12:16:03 by amersoul         ###   ########.fr       */
+/*   Created: 2018/10/23 12:12:19 by amersoul          #+#    #+#             */
+/*   Updated: 2018/10/24 11:18:22 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "draw.h"
+#include "wireframe.h"
 
-t_edge	ft_offset_edge(t_edge edge, const t_vertex offset)
+t_vertex	ft_create_vertex(const int x, const int y, const int z)
 {
-	edge.vertex_1.x += offset.x;
-	edge.vertex_1.y += offset.y;
-	edge.vertex_2.x += offset.x;
-	edge.vertex_2.y += offset.y;
-	return (edge);
+	t_vertex vertex;
+
+	vertex.x = x;
+	vertex.y = y;
+	vertex.z = z;
+	return (vertex);
 }
