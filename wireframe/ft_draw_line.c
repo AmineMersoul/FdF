@@ -65,8 +65,8 @@ void		ft_draw_line(void *param, t_edge edge)
 	t_vertex	vertex_e;
 	t_edge		edge_cal;
 
-	vertex_e.x = ft_abs(edge.vertex_2.x - edge.vertex_1.x);
-	vertex_e.y = ft_abs(edge.vertex_2.y - edge.vertex_1.y);
+	vertex_e.x = fabs(edge.vertex_2.x - edge.vertex_1.x);
+	vertex_e.y = fabs(edge.vertex_2.y - edge.vertex_1.y);
 	edge_cal.vertex_1.x = 2 * vertex_e.x;
 	edge_cal.vertex_1.y = 2 * vertex_e.y;
 	edge_cal.vertex_2.x = 1;
