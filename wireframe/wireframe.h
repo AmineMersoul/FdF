@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/20 20:18:52 by amersoul          #+#    #+#             */
-/*   Updated: 2018/10/24 20:20:28 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/11/12 15:09:43 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,8 @@ void			ft_count_x_y(const int fd, int *x, int *y);
 t_surface		*ft_create_surface(const int fd, const int x, const int y);
 t_color			ft_create_color(const int r, const int g, const int b);
 int				ft_create_rgb(t_color color);
+void			ft_draw_help(void *param);
+void			ft_redraw(void *param);
+void			ft_draw_surface_iso(t_surface *surface, void *param);
 
 #endif

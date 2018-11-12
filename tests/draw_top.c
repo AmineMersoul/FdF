@@ -26,7 +26,7 @@ void	get_coordinates(const int x, const int y, void *param)
 		ft_putstr(", y2 : ");
 		ft_putnbr(coordinates[1][second]);
 		ft_putstr("\n");
-		
+
 		t_edge edge;
 		edge.vertex_1.x = coordinates[0][first];
 		edge.vertex_1.y = coordinates[1][first];
@@ -42,44 +42,6 @@ int	check_win_click(const int x, const int y)
 	if (x < 0 || y < 0)
 		return (0);
 	return (1);
-}
-
-
-void	draw_surface_iso(t_surface *surface, void *param)
-{
-	int row;
-	int col;
-	t_edge projection;
-	t_draw_params *params;
-
-	params = (t_draw_params*)param;
-	row = 0;
-	while (row < surface->rows)
-	{
-		col = 0;
-		while (col < surface->cols)
-		{
-			if (col + 1 < surface->cols)
-			{
-				
-				projection = ft_create_edge(surface->vertex[row][col], surface->vertex[row][col + 1]);
-				projection = ft_iso_projection(projection, params->extrude);
-				projection = ft_scale_edge(projection , params->scale);
-				projection = ft_offset_edge(projection, params->offset);
-				ft_draw_line(param, projection);
-			}
-			if (row + 1 < surface->rows)
-			{
-				projection = ft_create_edge(surface->vertex[row][col], surface->vertex[row + 1][col]);
-				projection = ft_iso_projection(projection, params->extrude);
-				projection = ft_scale_edge(projection, params->scale);
-				projection = ft_offset_edge(projection, params->offset);
-				ft_draw_line(param, projection);
-			}
-			col++;
-		}
-		row++;
-	}
 }
 
 void	draw_surface_top(t_surface *surface, const int scale, void *param)
@@ -117,29 +79,6 @@ void	draw_surface_top(t_surface *surface, const int scale, void *param)
 	}
 }
 
-void	draw_help(void *param)
-{
-	t_draw_params *params;
-
-	params = (t_draw_params*)param;
-	if (params->help == 0)
-		return ;
-	mlx_string_put(params->mlx_ptr, params->win_ptr, 32, 32, 0xFFFFFF, "presse 'esc' key to exit");
-	mlx_string_put(params->mlx_ptr, params->win_ptr, 32, 64, 0xFFFFFF, "presse 'c' key to clear screen");
-	mlx_string_put(params->mlx_ptr, params->win_ptr, 400, 32, 0xFFFFFF, "presse key 'up' or 'down' to change height");
-	mlx_string_put(params->mlx_ptr, params->win_ptr, 400, 64, 0xFFFFFF, "click on the screen to draw lignes");
-}
-
-void	redraw(void *param)
-{
-	t_draw_params *params;
-
-	params = (t_draw_params*)param;
-	mlx_clear_window(params->mlx_ptr, params->win_ptr);
-	draw_help(param);
-	draw_surface_iso(params->surface, param);
-}
-
 //	event method for keyboard
 int	deal_key(int key, void *param)
 {
@@ -154,74 +93,74 @@ int	deal_key(int key, void *param)
 	if (key == 8)
 	{
 		mlx_clear_window(params->mlx_ptr, params->win_ptr);
-		draw_help(param);
+		ft_draw_help(param);
 	}
 	// key up pressed
 	if (key == 126)
 	{
 		params->extrude += 0.02;
-		redraw(params);
+		ft_redraw(params);
 	}
 	// key down pressed
 	if (key == 125)
 	{
 		params->extrude -= 0.02;
-		redraw(params);
+		ft_redraw(params);
 	}
 	// key '-' pressed
 	if (key == 78)
 	{
 		if (params->scale > 0.5)
 			params->scale -= 0.5;
-		redraw(params);
+		ft_redraw(params);
 	}
 	// key '+' pressed
 	if (key == 69)
 	{
 		params->scale += 0.5;
-		redraw(params);
+		ft_redraw(params);
 	}
 	// key w pressed
 	if (key == 13)
 	{
 		params->offset.y -= 50;
-		redraw(params);
+		ft_redraw(params);
 	}
 	// key s pressed
 	if (key == 1)
 	{
 		params->offset.y += 50;
-		redraw(params);
+		ft_redraw(params);
 	}
 	// key d pressed
 	if (key == 2)
 	{
 		params->offset.x += 50;
-		redraw(params);
+		ft_redraw(params);
 	}
 	// key a pressed
 	if (key == 0)
 	{
 		params->offset.x -= 50;
-		redraw(params);
+		ft_redraw(params);
 	}
 	// key r pressed
 	if (key == 15)
 	{
 		params->color.r -= 10;
-		redraw(params);
+		ft_redraw(params);
 	}
 	// key g pressed
 	if (key == 5)
 	{
 		params->color.g -= 10;
-		redraw(params);
+		ft_redraw(params);
 	}
 	// key b pressed
 	if (key == 11)
 	{
 		params->color.b -= 10;
-		redraw(params);
+		ft_redraw(params);
 	}
 	if (key == 122)
 	{
@@ -229,7 +168,7 @@ int	deal_key(int key, void *param)
 			params->help = 1;
 		else
 			params->help = 0;
-		redraw(params);
+		ft_redraw(params);
 	}
 	// printing key pressed
 	ft_putstr("key : ");
@@ -252,13 +191,13 @@ int	deal_key_mouse(int button, int x, int y, void *param)
 	{
 		if (params->scale > 0.5)
 			params->scale -= 0.5;
-		redraw(params);
+		ft_redraw(params);
 	}
 	// key '+' pressed
 	if (button == 4)
 	{
 		params->scale += 0.5;
-		redraw(params);
+		ft_redraw(params);
 	}
 	// printing key button
 	ft_putstr("button : ");
@@ -329,10 +268,10 @@ int	main(void)
 	params->offset = ft_create_vertex(710, 100, 0);
 
 	// draw string on screen
-	draw_help(params);
+	ft_draw_help(params);
 
 	// drawing surface
-	draw_surface_iso(surface, params);
+	ft_draw_surface_iso(surface, params);
 
 	// event hooker for window
 	mlx_key_hook(win_ptr, deal_key, params);
