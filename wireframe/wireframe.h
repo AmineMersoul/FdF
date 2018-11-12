@@ -17,6 +17,7 @@
 # include "../util/util.h"
 # include "../get_next_line/get_next_line.h"
 # include "../libft/libft.h"
+# include <math.h>
 
 typedef struct
 {
@@ -47,6 +48,7 @@ typedef struct
 
 typedef struct
 {
+	int			help;
 	float		scale;
 	float		extrude;
 	void		*mlx_ptr;
