@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/20 20:18:52 by amersoul          #+#    #+#             */
-/*   Updated: 2018/11/12 15:09:43 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/11/12 16:15:19 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void			ft_draw_line(void *param, t_edge edge);
 t_edge			ft_offset_edge(t_edge edge, const t_vertex offset);
 t_edge			ft_scale_edge(t_edge edge, const float scale);
 t_edge			ft_iso_projection(t_edge edge, float extrude);
-void			ft_count_x_y(const int fd, int *x, int *y);
+int				ft_count_x_y(const int fd, int *x, int *y);
 t_surface		*ft_create_surface(const int fd, const int x, const int y);
 t_color			ft_create_color(const int r, const int g, const int b);
 int				ft_create_rgb(t_color color);
