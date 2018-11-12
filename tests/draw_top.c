@@ -122,6 +122,8 @@ void	draw_help(void *param)
 	t_draw_params *params;
 
 	params = (t_draw_params*)param;
+	if (params->help == 0)
+		return ;
 	mlx_string_put(params->mlx_ptr, params->win_ptr, 32, 32, 0xFFFFFF, "presse 'esc' key to exit");
 	mlx_string_put(params->mlx_ptr, params->win_ptr, 32, 64, 0xFFFFFF, "presse 'c' key to clear screen");
 	mlx_string_put(params->mlx_ptr, params->win_ptr, 400, 32, 0xFFFFFF, "presse key 'up' or 'down' to change height");
@@ -221,6 +223,14 @@ int	deal_key(int key, void *param)
 		params->color.b -= 10;
 		redraw(params);
 	}
+	if (key == 122)
+	{
+		if (params->help == 0)
+			params->help = 1;
+		else
+			params->help = 0;
+		redraw(params);
+	}
 	// printing key pressed
 	ft_putstr("key : ");
 	ft_putnbr(key);
@@ -311,11 +321,12 @@ int	main(void)
 	t_draw_params *params = malloc(sizeof(t_draw_params));
 	params->win_ptr = win_ptr;
 	params->mlx_ptr = mlx_ptr;
+	params->help = 0;
 	params->color = ft_create_color(255, 255, 255);
 	params->extrude = 0.2f;
-	params->scale = 4;
+	params->scale = 1900 / 2 / (x + y);
 	params->surface = surface;
-	params->offset = ft_create_vertex(500, 200, 0);
+	params->offset = ft_create_vertex(710, 100, 0);
 
 	// draw string on screen
 	draw_help(params);
