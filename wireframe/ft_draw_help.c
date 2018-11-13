@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 15:02:29 by amersoul          #+#    #+#             */
-/*   Updated: 2018/11/13 16:30:15 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/11/13 20:29:40 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_draw_help(void *param)
 	mlx_string_put(params->mlx_ptr, params->win_ptr,
 	32, 32, 0xFFFFFF, "presse 'esc' key to exit");
 	mlx_string_put(params->mlx_ptr, params->win_ptr,
-	32, 64, 0xFFFFFF, "presse 'c' key to clear screen");
+	32, 64, 0xFFFFFF, "presse 'c' key to colorize");
 	mlx_string_put(params->mlx_ptr, params->win_ptr,
 	400, 32, 0xFFFFFF, "presse 'up' or 'down' keys to change height");
 	mlx_string_put(params->mlx_ptr, params->win_ptr,

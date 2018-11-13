@@ -53,8 +53,19 @@ int	deal_key(int key, void *param)
 	// if esc pressed then exit
 	if (key == 53)
 		exit(0);
-	// clear screen if c pressed
+	// key c pressed
 	if (key == 8)
+	{
+		if (params->colorize == 1)
+			params->colorize = 0;
+		else
+			params->colorize = 1;
+		ft_draw_help(param);
+		params->color = ft_create_color(255, 255, 255);
+		ft_redraw(params);
+	}
+	// key x pressed
+	if (key == 7)
 	{
 		mlx_clear_window(params->mlx_ptr, params->win_ptr);
 		ft_draw_help(param);
@@ -260,6 +271,7 @@ int	main(int argc, char **argv)
 		params->mlx_ptr = mlx_ptr;
 		params->help = 0;
 		params->view = 1;
+		params->colorize = 0;
 		params->color = ft_create_color(255, 255, 255);
 		params->extrude = 0.3f;
 		params->scale = 1900 / 2 / (x + y);
