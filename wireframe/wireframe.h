@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/20 20:18:52 by amersoul          #+#    #+#             */
-/*   Updated: 2018/11/13 15:56:27 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/11/13 19:26:40 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,7 @@ int				ft_create_rgb(t_color color);
 void			ft_draw_help(void *param);
 void			ft_redraw(void *param);
 void			ft_draw_surface_iso(t_surface *surface, void *param);
+void			ft_altitude_colors(void *param,
+t_vertex vertex_1, t_vertex vertex_2);
 
 #endif

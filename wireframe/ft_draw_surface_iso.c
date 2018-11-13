@@ -6,13 +6,13 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 15:08:47 by amersoul          #+#    #+#             */
-/*   Updated: 2018/11/13 16:02:30 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/11/13 19:26:56 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wireframe.h"
 
-void	draw_ligne_h(t_surface *surface, void *param, int col, int row)
+static void	draw_ligne_h(t_surface *surface, void *param, int col, int row)
 {
 	t_edge			projection;
 	t_draw_params	*params;
@@ -20,6 +20,7 @@ void	draw_ligne_h(t_surface *surface, void *param, int col, int row)
 	params = (t_draw_params*)param;
 	projection = ft_create_edge(surface->vertex[row][col],
 	surface->vertex[row][col + 1]);
+	ft_altitude_colors(param, projection.vertex_1, projection.vertex_2);
 	if (params->view == 1)
 		projection = ft_iso_projection(projection, params->extrude);
 	projection = ft_scale_edge(projection, params->scale);
@@ -27,7 +28,7 @@ void	draw_ligne_h(t_surface *surface, void *param, int col, int row)
 	ft_draw_line(param, projection);
 }
 
-void	draw_ligne_v(t_surface *surface, void *param, int col, int row)
+static void	draw_ligne_v(t_surface *surface, void *param, int col, int row)
 {
 	t_edge			projection;
 	t_draw_params	*params;
@@ -35,6 +36,7 @@ void	draw_ligne_v(t_surface *surface, void *param, int col, int row)
 	params = (t_draw_params*)param;
 	projection = ft_create_edge(surface->vertex[row][col],
 	surface->vertex[row + 1][col]);
+	ft_altitude_colors(param, projection.vertex_1, projection.vertex_2);
 	if (params->view == 1)
 		projection = ft_iso_projection(projection, params->extrude);
 	projection = ft_scale_edge(projection, params->scale);
@@ -42,7 +44,7 @@ void	draw_ligne_v(t_surface *surface, void *param, int col, int row)
 	ft_draw_line(param, projection);
 }
 
-void	ft_draw_surface_iso(t_surface *surface, void *param)
+void		ft_draw_surface_iso(t_surface *surface, void *param)
 {
 	int				row;
 	int				col;
