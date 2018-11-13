@@ -5,45 +5,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void	get_coordinates(const int x, const int y, void *param)
-{
-	static int 	coordinates[2][250];
-	static int	index = 0;
-
-	coordinates[0][index] = x;
-	coordinates[1][index] = y;
-	if (index % 2 == 1)
-	{
-		int first = index - 1;
-		int second = index;
-		// printing coordinates
-		ft_putstr("x1 : ");
-		ft_putnbr(coordinates[0][first]);
-		ft_putstr(", y1 : ");
-		ft_putnbr(coordinates[1][first]);
-		ft_putstr(", x2 : ");
-		ft_putnbr(coordinates[0][second]);
-		ft_putstr(", y2 : ");
-		ft_putnbr(coordinates[1][second]);
-		ft_putstr("\n");
-
-		t_edge edge;
-		edge.vertex_1.x = coordinates[0][first];
-		edge.vertex_1.y = coordinates[1][first];
-		edge.vertex_2.x = coordinates[0][second];
-		edge.vertex_2.y = coordinates[1][second];
-		ft_draw_line(param, edge);
-	}
-	index++;
-}
-
-int	check_win_click(const int x, const int y)
-{
-	if (x < 0 || y < 0)
-		return (0);
-	return (1);
-}
-
 //	event method for keyboard
 int	deal_key(int key, void *param)
 {
@@ -162,53 +123,6 @@ int	deal_key(int key, void *param)
 	return (0);
 }
 
-//	event method for mouse
-int	deal_key_mouse(int button, int x, int y, void *param)
-{
-	t_draw_params *params;
-
-	params = (t_draw_params*)param;
-
-	if (button == 1 && check_win_click(x, y))
-		get_coordinates(x, y, param);
-
-	// scroll up pressed
-	if (button == 5)
-	{
-		if (params->scale > 0.5)
-			params->scale -= 0.5;
-		ft_redraw(params);
-	}
-	// scroll down pressed
-	if (button == 4)
-	{
-		params->scale += 0.5;
-		ft_redraw(params);
-	}
-	// shift + scroll up pressed
-	if (button == 7)
-	{
-		if (params->scale > 5)
-			params->scale -= 5;
-		ft_redraw(params);
-	}
-	// shift + scroll down pressed
-	if (button == 6)
-	{
-		params->scale += 5;
-		ft_redraw(params);
-	}
-	// printing key button
-	ft_putstr("x : ");
-	ft_putnbr(x);
-	ft_putstr(" y : ");
-	ft_putnbr(y);
-	ft_putstr("button : ");
-	ft_putnbr(button);
-	ft_putstr("\n");
-	return (0);
-}
-
 void	print_surface(t_surface *surface)
 {
 	int row;
@@ -286,7 +200,7 @@ int	main(int argc, char **argv)
 
 		// event hooker for window
 		mlx_key_hook(win_ptr, deal_key, params);
-		mlx_mouse_hook(win_ptr, deal_key_mouse, params);
+		mlx_mouse_hook(win_ptr, ft_deal_key_mouse, params);
 		mlx_loop(mlx_ptr);
 	}
 	else
