@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 15:02:29 by amersoul          #+#    #+#             */
-/*   Updated: 2018/11/12 15:05:36 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/11/13 16:30:15 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,15 @@ void	ft_draw_help(void *param)
 	mlx_string_put(params->mlx_ptr, params->win_ptr,
 	32, 64, 0xFFFFFF, "presse 'c' key to clear screen");
 	mlx_string_put(params->mlx_ptr, params->win_ptr,
-	400, 32, 0xFFFFFF, "presse key 'up' or 'down' to change height");
+	400, 32, 0xFFFFFF, "presse 'up' or 'down' keys to change height");
 	mlx_string_put(params->mlx_ptr, params->win_ptr,
 	400, 64, 0xFFFFFF, "click on the screen to draw lignes");
+	mlx_string_put(params->mlx_ptr, params->win_ptr,
+	900, 32, 0xFFFFFF, "presse 'w, s, a, d' keys to move");
+	mlx_string_put(params->mlx_ptr, params->win_ptr,
+	900, 64, 0xFFFFFF, "scroll or press '+, -' keys to zoom");
+	mlx_string_put(params->mlx_ptr, params->win_ptr,
+	1300, 32, 0xFFFFFF, "presse 'v' key to chage views");
+	mlx_string_put(params->mlx_ptr, params->win_ptr,
+	1300, 64, 0xFFFFFF, "presse 'r, g ,b' keys to change colors");
 }
