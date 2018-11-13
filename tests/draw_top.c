@@ -187,19 +187,37 @@ int	deal_key_mouse(int button, int x, int y, void *param)
 	if (button == 1 && check_win_click(x, y))
 		get_coordinates(x, y, param);
 
+	// scroll up pressed
 	if (button == 5)
 	{
 		if (params->scale > 0.5)
 			params->scale -= 0.5;
 		ft_redraw(params);
 	}
-	// key '+' pressed
+	// scroll down pressed
 	if (button == 4)
 	{
 		params->scale += 0.5;
 		ft_redraw(params);
 	}
+	// shift + scroll up pressed
+	if (button == 7)
+	{
+		if (params->scale > 5)
+			params->scale -= 5;
+		ft_redraw(params);
+	}
+	// shift + scroll down pressed
+	if (button == 6)
+	{
+		params->scale += 5;
+		ft_redraw(params);
+	}
 	// printing key button
+	ft_putstr("x : ");
+	ft_putnbr(x);
+	ft_putstr(" y : ");
+	ft_putnbr(y);
 	ft_putstr("button : ");
 	ft_putnbr(button);
 	ft_putstr("\n");
