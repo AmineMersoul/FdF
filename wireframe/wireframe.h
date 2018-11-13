@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/20 20:18:52 by amersoul          #+#    #+#             */
-/*   Updated: 2018/11/13 21:12:11 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/11/13 21:14:41 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,6 @@ void			ft_altitude_colors(void *param,
 t_vertex vertex_1, t_vertex vertex_2);
 int				ft_check_win_click(const int x, const int y);
 void			ft_get_coordinates(const int x, const int y, void *param);
-int				ft_deal_key_mouse(int button, int x, int y, void *param);
+int				ft_deal_mouse(int button, int x, int y, void *param);
 
 #endif

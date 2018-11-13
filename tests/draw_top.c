@@ -200,7 +200,7 @@ int	main(int argc, char **argv)
 
 		// event hooker for window
 		mlx_key_hook(win_ptr, deal_key, params);
-		mlx_mouse_hook(win_ptr, ft_deal_key_mouse, params);
+		mlx_mouse_hook(win_ptr, ft_deal_mouse, params);
 		mlx_loop(mlx_ptr);
 	}
 	else

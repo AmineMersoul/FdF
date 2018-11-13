@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_deal_key_mouse.c                                :+:      :+:    :+:   */
+/*   ft_deal_mouse.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 20:59:47 by amersoul          #+#    #+#             */
-/*   Updated: 2018/11/13 21:12:16 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/11/13 21:14:35 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	mouse_shift_up(t_draw_params *params)
 	ft_redraw(params);
 }
 
-int			ft_deal_key_mouse(int button, int x, int y, void *param)
+int			ft_deal_mouse(int button, int x, int y, void *param)
 {
 	t_draw_params *params;
 
