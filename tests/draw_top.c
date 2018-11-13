@@ -44,48 +44,12 @@ int	check_win_click(const int x, const int y)
 	return (1);
 }
 
-void	draw_surface_top(t_surface *surface, const int scale, void *param)
-{
-	int row;
-	int col;
-	t_vertex offset;
-	t_edge edge;
-
-	offset.x = 100;
-	offset.y = 50;
-	row = 0;
-	while (row < surface->rows)
-	{
-		col = 0;
-		while (col < surface->cols)
-		{
-			if (col + 1 < surface->cols)
-			{
-				edge = ft_create_edge(surface->vertex[row][col], surface->vertex[row][col + 1]);
-				edge = ft_scale_edge(edge , scale);
-				edge = ft_offset_edge(edge, offset);
-				ft_draw_line(param, edge);
-			}
-			if (row + 1 < surface->rows)
-			{
-				edge = ft_create_edge(surface->vertex[row][col], surface->vertex[row + 1][col]);
-				edge = ft_scale_edge(edge, scale);
-				edge = ft_offset_edge(edge, offset);
-				ft_draw_line(param, edge);
-			}
-			col++;
-		}
-		row++;
-	}
-}
-
 //	event method for keyboard
 int	deal_key(int key, void *param)
 {
 	t_draw_params *params;
 
 	params = (t_draw_params*)param;
-
 	// if esc pressed then exit
 	if (key == 53)
 		exit(0);
@@ -162,12 +126,22 @@ int	deal_key(int key, void *param)
 		params->color.b -= 10;
 		ft_redraw(params);
 	}
+	// key f1 pressed
 	if (key == 122)
 	{
 		if (params->help == 0)
 			params->help = 1;
 		else
 			params->help = 0;
+		ft_redraw(params);
+	}
+	// key v pressed
+	if (key == 9)
+	{
+		if (params->view == 1)
+			params->view = 0;
+		else
+			params->view = 1;
 		ft_redraw(params);
 	}
 	// printing key pressed
@@ -285,6 +259,7 @@ int	main(int argc, char **argv)
 		params->win_ptr = win_ptr;
 		params->mlx_ptr = mlx_ptr;
 		params->help = 0;
+		params->view = 1;
 		params->color = ft_create_color(255, 255, 255);
 		params->extrude = 0.2f;
 		params->scale = 1900 / 2 / (x + y);

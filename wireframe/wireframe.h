@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/20 20:18:52 by amersoul          #+#    #+#             */
-/*   Updated: 2018/11/12 16:15:19 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/11/13 15:56:27 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct
 
 typedef struct
 {
+	int			view;
 	int			help;
 	float		scale;
 	float		extrude;

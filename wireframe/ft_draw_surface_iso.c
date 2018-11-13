@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 15:08:47 by amersoul          #+#    #+#             */
-/*   Updated: 2018/11/12 15:17:08 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/11/13 16:02:30 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ void	draw_ligne_h(t_surface *surface, void *param, int col, int row)
 	params = (t_draw_params*)param;
 	projection = ft_create_edge(surface->vertex[row][col],
 	surface->vertex[row][col + 1]);
-	projection = ft_iso_projection(projection, params->extrude);
+	if (params->view == 1)
+		projection = ft_iso_projection(projection, params->extrude);
 	projection = ft_scale_edge(projection, params->scale);
 	projection = ft_offset_edge(projection, params->offset);
 	ft_draw_line(param, projection);
@@ -34,7 +35,8 @@ void	draw_ligne_v(t_surface *surface, void *param, int col, int row)
 	params = (t_draw_params*)param;
 	projection = ft_create_edge(surface->vertex[row][col],
 	surface->vertex[row + 1][col]);
-	projection = ft_iso_projection(projection, params->extrude);
+	if (params->view == 1)
+		projection = ft_iso_projection(projection, params->extrude);
 	projection = ft_scale_edge(projection, params->scale);
 	projection = ft_offset_edge(projection, params->offset);
 	ft_draw_line(param, projection);
