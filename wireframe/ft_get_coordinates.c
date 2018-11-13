@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 21:07:29 by amersoul          #+#    #+#             */
-/*   Updated: 2018/11/13 21:11:51 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/11/13 21:56:24 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,12 @@
 
 void	ft_get_coordinates(const int x, const int y, void *param)
 {
-	t_edge		edge;
 	int			first;
 	int			second;
+	t_edge		edge;
+	static int	index = 0;
 	static int	coordinates[2][250];
-	static int	index;
 
-	index = 0;
 	coordinates[0][index] = x;
 	coordinates[1][index] = y;
 	if (index % 2 == 1)
