@@ -261,7 +261,7 @@ int	main(int argc, char **argv)
 		params->help = 0;
 		params->view = 1;
 		params->color = ft_create_color(255, 255, 255);
-		params->extrude = 0.2f;
+		params->extrude = 0.3f;
 		params->scale = 1900 / 2 / (x + y);
 		params->surface = surface;
 		params->offset = ft_create_vertex(710, 100, 0);
