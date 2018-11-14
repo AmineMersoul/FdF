@@ -6,7 +6,7 @@
 /*   By: amersoul <amersoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/20 20:18:52 by amersoul          #+#    #+#             */
-/*   Updated: 2018/11/13 21:43:09 by amersoul         ###   ########.fr       */
+/*   Updated: 2018/11/14 11:56:55 by amersoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define __WIREFRAME_H
 
 # include "../minilibx/mlx.h"
-# include "../util/util.h"
 # include "../get_next_line/get_next_line.h"
 # include "../libft/libft.h"
 # include <math.h>
@@ -79,5 +78,6 @@ int				ft_check_win_click(const int x, const int y);
 void			ft_get_coordinates(const int x, const int y, void *param);
 int				ft_deal_mouse(int button, int x, int y, void *param);
 int				ft_deal_key(int key, void *param);
+void			ft_print_surface(t_surface *surface);
 
 #endif
