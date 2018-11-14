@@ -6,10 +6,10 @@ MINILIBX = minilibx/
 LIBS = libft/libft.a wireframe/wireframe.a get_next_line/get_next_line.c
 FLAGS = -lmlx -framework OpenGl -framework AppKit
 
+all: $(NAME)
+
 run:
 	cc -I $(MINILIBX) $(SOURCE) $(LIBS) -L $(MINILIBX) $(FLAGS) -o $(NAME)
-
-all: $(NAME)
 
 mlibft:
 	cd libft && $(MAKE) re && $(MAKE) clean
